@@ -36,12 +36,12 @@ const displayNews = (newses) => {
         newsDiv.innerHTML = `
         <div class="row">
         <div class="col-md-3">
-            <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            <img src="${news.thumbnail_url}" class="img-fluid rounded-start mh-100" alt="...">
         </div>
         <div class="col-md-9">
         <div class="card-body">
-            <h5 class="card-title pb-3">${news.title}</h5>
-            <p class="card-text pb-5">${news.details.slice(0, 400 )} ...</p>
+            <h5 class="card-title pb-2">${news.title}</h5>
+            <p class="card-text pb-3">${news.details.length > 400 ? news.details.slice(0, 400) + ' ...' : news.details}</p>
             <div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex w-25">
@@ -59,7 +59,8 @@ const displayNews = (newses) => {
             </div>
         </div>
         `
-        newsList.appendChild(newsDiv)
+        newsList.appendChild(newsDiv);
+
     });
 }
 loadNews()
