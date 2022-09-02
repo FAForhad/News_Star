@@ -8,27 +8,26 @@ const displayCategories = (categories) => {
     categories.forEach( category => {
         const categories = document.getElementById('categories')
         const tagDiv = document.createElement('div');
-        // tagDiv.setAttribute("onclick", `"loadNews(${category.category_id})"`);
         tagDiv.classList.add('fs-5')
         tagDiv.classList.add('mb-5')
         tagDiv.innerHTML = `
-        <button class="btn">${category.category_name}</button> 
+        <button class="btn" onclick="loadNews('${category.category_id}')">${category.category_name}</button> 
         `
         categories.appendChild(tagDiv)
     });
 }
 
-const loadNews = () => {
-    const url = `https://openapi.programming-hero.com/api/news/category/08`
+const loadNews = (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
 }
 
 const displayNews = (newses) => {
+    const newsList = document.getElementById('news-list');
+    newsList.textContent = '';
     newses.forEach(news => {
-        console.log(news)
-        const newsList = document.getElementById('news-list')
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
         newsDiv.classList.add('my-3')
