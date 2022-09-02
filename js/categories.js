@@ -8,17 +8,18 @@ const displayCategories = (categories) => {
     categories.forEach( category => {
         const categories = document.getElementById('categories')
         const tagDiv = document.createElement('div');
+        // tagDiv.setAttribute("onclick", `"loadNews(${category.category_id})"`);
         tagDiv.classList.add('fs-5')
         tagDiv.classList.add('mb-5')
         tagDiv.innerHTML = `
-        <button class="btn onclick="">${category.category_name}</button> 
+        <button class="btn">${category.category_name}</button> 
         `
         categories.appendChild(tagDiv)
     });
 }
 
 const loadNews = () => {
-    const url = `https://openapi.programming-hero.com/api/news/category/01`
+    const url = `https://openapi.programming-hero.com/api/news/category/08`
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
@@ -51,7 +52,7 @@ const displayNews = (newses) => {
                         </div>
                     </div>
                     <h6 class="ps-2">Views ${news.total_view}</h6>
-                    <button class="btn btn-outline-success px-5">Details</button>
+                    <button class="btn btn-outline-success px-5" type="button" data-bs-toggle="modal" data-bs-target="#newsModal">Details</button>
                 </div>
                 </div>
             </div>
