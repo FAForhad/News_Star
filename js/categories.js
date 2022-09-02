@@ -51,7 +51,7 @@ const displayNews = (newses) => {
                         </div>
                     </div>
                     <h6 class="ps-2">Views ${news.total_view}</h6>
-                    <button class="btn btn-outline-success px-5" type="button" data-bs-toggle="modal" data-bs-target="#newsModal">Details</button>
+                    <button class="btn btn-outline-success px-5" onclick="loadNewsDetails('${news._id}')" type="button" data-bs-toggle="modal" data-bs-target="#newsModal">Details</button>
                 </div>
                 </div>
             </div>
@@ -62,7 +62,24 @@ const displayNews = (newses) => {
 
     });
 }
-loadNews()
+const loadNewsDetails = (newsId) => {
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNewsDetails(data.data[0]))
+}
 
+const displayNewsDetails = (data) => {
+    console.log(data)
+    const newsModalLabel = document.getElementById('newsModalLabel');
+    newsModalLabel.innerText = data.author.name;
+    const newsDetails = document.getElementById('news-details');
+    newsDetails.innerHTML = `
+    <img src="${data.image_url}" class="img-fluid rounded-start mh-100" alt="...">
+    <h5 class="card-title pb-5">${data.title}</h5>
+    <p class="card-text pb-5">${data.details}</p>
+    <p class="card-text pb-2">${data.author.published_date}</p>
+    `
+}
 
 loadCategories()
