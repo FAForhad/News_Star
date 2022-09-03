@@ -29,8 +29,8 @@
                                 </li>
                             </ul>
                             <form class="d-flex justify-content-end w-25">
-                                <p class="form-control mt-2 me-2 text-light"> <a href="index.html"> News</a></p>
-                                <p class="form-control mt-2 me-2"> <a href="blogs.html"> Blog</a></p>
+                                <p class="form-control mt-2 me-2 fw-bold"> <a href="index.html" style="text-decoration:none; color: black; "> News</a></p>
+                                <p class="form-control mt-2 me-2 fw-bold"> <a href="blogs.html" style="text-decoration:none; color: black; "> Blog</a></p>
                                 <div>
                                     <img src="/images/PngItem_941762.png" class="w-25 my-2 mx-100" alt="">
                                 </div>
@@ -49,8 +49,10 @@
                   <div class="card">
                     <img src="/images/var-vs-let-vs-const-in-javascript.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title"> Var vs Let vs Const</h5>
-                      <p class="card-text">Var : Var  Var can declare without initialization.</p>
+                      <h5 class="card-title py-1"> Var vs Let vs Const</h5>
+                      <p class="card-text"> <span class="fw-bold"> Var</span> : User can re-declare variable using var and user can update var variable. Var can declare without initialization.</p>
+                      <p class="card-text"> <span class="fw-bold"> Let</span> :Users cannot re-declare the variable defined with the same let keyword but can update it., it does not initialize with undefined just like a var variable and return an error.</p>
+                      <p class="card-text"> <span class="fw-bold"> Const</span> :Users cannot change the properties of the const object, but can change value of properties of the const object. Var cannot declare without initialization.</p>
                     </div>
                   </div>
                 </div>
@@ -58,8 +60,9 @@
                   <div class="card">
                     <img src="/images/maxresdefault_1_830x435.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">Arrow Function vs Normal Function</h5>
+                      <p class="card-text"><span class="fw-bold"> Arrow Function </span> : Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow functions.</p>
+                      <p class="card-text"><span class="fw-bold"> Regular Function </span> : In a Regular function, there is an arguments local variable. If the number of arguments to our function is dynamic, using arguments allows us to easily do things like calculating the maximum number of passed arguments is an array-like object</p>
                     </div>
                   </div>
                 </div>
@@ -67,8 +70,11 @@
                   <div class="card">
                     <img src="/images/tZaYu2SZq_1_830x435.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                      <h5 class="card-title">Difference Between =>  Map, Foreach, Filter, Find</h5>
+                      <p class="card-text"><span class="fw-bold"> map </span> : map run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.</p>
+                      <p class="card-text"><span class="fw-bold"> forEach</span> : forEach just loop over the array and executes the callback </p>
+                      <p class="card-text"><span class="fw-bold"> filter</span> : filter executes the callback and check its return value.</p>
+                      <p class="card-text"><span class="fw-bold"> find</span> : find executes the callback and check it but return the first value completed condition.</p>
                     </div>
                   </div>
                 </div>
@@ -76,16 +82,20 @@
                   <div class="card">
                     <img src="/images/y8IP8T05y_830x435.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h5 class="card-title">Tamplet String</h5>
+                      <p class="card-text"> <span class="fw-bold">Tamplet String </span> : Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.
+                        <br>
+                        The tag function can then perform whatever operations on these arguments you wish, and return the manipulated string. <br> (Alternatively, it can return something completely different, as described in one of the following examples.)
+                        <br>
+                        The name of the function used for the tag can be whatever you want.</p>
                     </div>
                   </div>
                 </div>
               </div>
         </section>
     </main>
-    <footer class="footer mt-5">
-    <div class="mt-5 p-4 bg-info">
+    <footer class="footer mt-5"">
+    <div class="mt-5 p-4 shadow-lg p-3 bg-body">
         <h4 class="text-center py-2 my-5 fw-lighter">Copyright 2021 NEWS STAR</h4>
     </div>
     </footer>

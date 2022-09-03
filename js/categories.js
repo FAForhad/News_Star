@@ -1,3 +1,4 @@
+
 const loadCategories = () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
@@ -30,8 +31,8 @@ const loadNews = (id,name) => {
 }
 
 const displayNews = (newses, name) => {
-    setToggle(true)
     const newsList = document.getElementById('news-list');
+    setToggle(true);
     const sort = newses?.sort((a, b) => (a.total_view > b.total_view ? -1 : 1));
     newsList.textContent = '';
 
@@ -39,7 +40,7 @@ const displayNews = (newses, name) => {
     if (newses.length === 0) {
         newsResult.innerText = `${name} has found no news`;
         newsResult.classList.add('text-danger');
-        
+
     }
     else {
         newsResult.innerText = `${newses.length} News found in ${name}`
@@ -62,8 +63,8 @@ const displayNews = (newses, name) => {
             <h5 class="card-title pb-2">${news.title ? news.title : 'no title found'}</h5>
             <p class="card-text pb-3">${news.details.length > 400 ? news.details.slice(0, 400) + ' ...' : news.details}</p>
             <div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex w-25">
+                <div class="d-flex  flex-lg-row justify-content-between align-items-center">
+                    <div class="d-flex flex-column flex-md-column flex-lg-row w-25">
                         <img src="${news.author.img ? news.author.img : 'img!!'}" class="img-fluid w-25 py-2 rounded-circle" alt="...">
                         <div class="mx-1" >
                             <p class="px-1">${news.author.name ? news.author.name : 'No Author Found'}</p>
