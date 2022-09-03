@@ -1,4 +1,4 @@
-
+// load cayegories------------------------------
 const loadCategories = () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
@@ -8,6 +8,8 @@ const loadCategories = () => {
         .catch(err => console.log(err))
     
 }
+
+// display cayegories------------------------------
 const displayCategories = (categories) => {
     categories.forEach( category => {
         const categories = document.getElementById('categories')
@@ -21,6 +23,7 @@ const displayCategories = (categories) => {
     });
 }
 
+// load newses------------------------------
 const loadNews = (id,name) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     fetch(url)
@@ -30,8 +33,9 @@ const loadNews = (id,name) => {
         .catch(err => console.log(err))
 }
 
+// display newses------------------------------
 const displayNews = (newses, name) => {
-
+    // news div id
     const newsList = document.getElementById('news-list');
     const sort = newses?.sort((a, b) => (a.total_view > b.total_view ? -1 : 1));
     newsList.textContent = '';
@@ -48,10 +52,11 @@ const displayNews = (newses, name) => {
 
     sort.forEach(news => {
         const newsDiv = document.createElement('div');
+        // div classes
         newsDiv.classList.add('card')
         newsDiv.classList.add('my-3')
         newsDiv.classList.add('mx-5')
-
+        // div html
         newsDiv.innerHTML = `
         <div class="row">
         <div class="col-md-3">
@@ -82,6 +87,9 @@ const displayNews = (newses, name) => {
     });
     setToggle(false);
 }
+
+
+// load news details------------------------------
 const loadNewsDetails = (newsId) => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`
     fetch(url)
@@ -91,8 +99,8 @@ const loadNewsDetails = (newsId) => {
         .catch(err => console.log(err))
 }
 
+// display news details------------------------------
 const displayNewsDetails = (details) => {
-    console.log(details)
     const newsModalLabel = document.getElementById('newsModalLabel');
     newsModalLabel.innerText = details.author.name;
     const newsDetails = document.getElementById('news-details');
@@ -105,6 +113,9 @@ const displayNewsDetails = (details) => {
     `
 }
 
+
+
+// set spinner------------------------------
 const setToggle = (isLoading) => {
     const spinner = document.getElementById('loader');
     if (isLoading) {
@@ -115,6 +126,8 @@ const setToggle = (isLoading) => {
     }
 }
 
+// call newses---------------------
 loadNews('01','treanding news')
 
+// call categories---------------------
 loadCategories()
