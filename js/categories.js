@@ -106,7 +106,7 @@ const displayNewsDetails = (details) => {
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = `
     <img src="${details.image_url ? details.image_url : 'no image found'}" class="img-fluid rounded-start mh-100" alt="...">
-    // <h5 class="card-title pb-5">${details.title ? details.title : 'no title found'}</h5>
+    <h5 class="card-title pb-5">${details.title ? details.title : 'no title found'}</h5>
     <p class="card-text pb-5">${details.details ? details.details : 'no details found'}</p>
     <p class="card-text pb-2">${details.author.published_date ? details.author.published_date : 'no published date found'}</p>
     <p class="card-text pb-2">Rating : ${details.rating.number ? details.rating.number : 'no rating found'} "${details.rating.badge ? details.rating.badge : 'no badge found'}"</p>
