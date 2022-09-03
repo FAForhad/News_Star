@@ -31,6 +31,7 @@ const loadNews = (id,name) => {
 
 const displayNews = (newses,name) => {
     const newsList = document.getElementById('news-list');
+    const sort = newses?.sort((a, b) => (a.total_view > b.total_view ? -1 : 1));
     newsList.textContent = '';
 
     const newsResult = document.getElementById('news-result');
@@ -43,7 +44,7 @@ const displayNews = (newses,name) => {
         newsResult.classList.remove('text-danger')
     }
 
-    newses.forEach(news => {
+    sort.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
         newsDiv.classList.add('my-3')
