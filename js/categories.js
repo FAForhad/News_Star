@@ -3,6 +3,9 @@ const loadCategories = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategories(data.data.news_category))
+        // error handler
+        .catch(err => console.log(err))
+    
 }
 const displayCategories = (categories) => {
     categories.forEach( category => {
@@ -11,22 +14,35 @@ const displayCategories = (categories) => {
         tagDiv.classList.add('fs-5')
         tagDiv.classList.add('mb-5')
         tagDiv.innerHTML = `
-        <button class="btn" onclick="loadNews('${category.category_id}')">${category.category_name}</button> 
+        <button class="btn" onclick="loadNews('${category.category_id}','${category.category_name}')">${category.category_name}</button> 
         `
         categories.appendChild(tagDiv)
     });
 }
 
-const loadNews = (id) => {
+const loadNews = (id,name) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     fetch(url)
         .then(res => res.json())
-        .then(data => displayNews(data.data))
+        .then(data => displayNews(data.data , name))
+            // error handler
+        .catch(err => console.log(err))
 }
 
-const displayNews = (newses) => {
+const displayNews = (newses,name) => {
     const newsList = document.getElementById('news-list');
     newsList.textContent = '';
+
+    const newsResult = document.getElementById('news-result');
+    if (newses.length === 0) {
+        newsResult.innerText = `${name} has found no news`;
+        newsResult.classList.add('text-danger')
+    }
+    else {
+        newsResult.innerText = `${newses.length} News found in ${name}`
+        newsResult.classList.remove('text-danger')
+    }
+
     newses.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
@@ -39,18 +55,18 @@ const displayNews = (newses) => {
         </div>
         <div class="col-md-9">
         <div class="card-body">
-            <h5 class="card-title pb-2">${news.title}</h5>
+            <h5 class="card-title pb-2">${news.title ? news.title : 'no title found'}</h5>
             <p class="card-text pb-3">${news.details.length > 400 ? news.details.slice(0, 400) + ' ...' : news.details}</p>
             <div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex w-25">
-                        <img src="${news.author.img}" class="img-fluid w-25 py-2 rounded-circle" alt="...">
+                        <img src="${news.author.img ? news.author.img : 'img!!'}" class="img-fluid w-25 py-2 rounded-circle" alt="...">
                         <div class="mx-1" >
-                            <p class="px-1">${news.author.name}</p>
-                            <p class="px-1">${news.author.published_date}</p>
+                            <p class="px-1">${news.author.name ? news.author.name : 'No Author Found'}</p>
+                            <p class="px-1">${news.author.published_date ? news.author.published_date : 'no date found'}</p>
                         </div>
                     </div>
-                    <h6 class="ps-2">Views ${news.total_view}</h6>
+                    <h6 class="ps-2"> ${news.total_view ? 'Views ' + news.total_view : 'No Views'}</h6>
                     <button class="btn btn-outline-success px-5" onclick="loadNewsDetails('${news._id}')" type="button" data-bs-toggle="modal" data-bs-target="#newsModal">Details</button>
                 </div>
                 </div>
@@ -67,19 +83,22 @@ const loadNewsDetails = (newsId) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayNewsDetails(data.data[0]))
+            // error handler
+        .catch(err => console.log(err))
 }
 
-const displayNewsDetails = (data) => {
-    console.log(data)
+const displayNewsDetails = (details) => {
+    console.log(details)
     const newsModalLabel = document.getElementById('newsModalLabel');
-    newsModalLabel.innerText = data.author.name;
+    newsModalLabel.innerText = details.author.name;
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = `
-    <img src="${data.image_url}" class="img-fluid rounded-start mh-100" alt="...">
-    <h5 class="card-title pb-5">${data.title}</h5>
-    <p class="card-text pb-5">${data.details}</p>
-    <p class="card-text pb-2">${data.author.published_date}</p>
+    <img src="${details.image_url ? details.image_url : 'no image found'}" class="img-fluid rounded-start mh-100" alt="...">
+    // <h5 class="card-title pb-5">${details.title ? details.title : 'no title found'}</h5>
+    <p class="card-text pb-5">${details.details ? details.details : 'no details found'}</p>
+    <p class="card-text pb-2">${details.author.published_date ? details.author.published_date : 'no published date found'}</p>
     `
 }
+loadNews('01','treanding news')
 
 loadCategories()
