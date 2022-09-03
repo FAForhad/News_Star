@@ -28,10 +28,10 @@
                             </li>
                         </ul>
                         <form class="d-flex justify-content-end w-25">
-                            <p class="form-control mt-2 me-2 text-light"> <a href=""> News</a></p>
-                            <p class="form-control mt-2 me-2"> <a href=""> Blog</a></p>
+                            <p class="form-control mt-2 me-2 text-light"> <a href="index.html"> News</a></p>
+                            <p class="form-control mt-2 me-2"> <a href="blogs.html"> Blog</a></p>
                             <div>
-                                <img src="./FEVICON/PngItem_941762.png" class="w-25 my-2 mx-100" alt="">
+                                <img src="/images/PngItem_941762.png" class="w-25 my-2 mx-100" alt="">
                             </div>
                         </form>
                     </div>
@@ -42,10 +42,20 @@
         <hr class="p-2">
         <div id="categories" class="d-flex justify-content-evenly">
         </div>
-        <section class="bg-info p-3 rounded-2 mb-5 ">
+        <section class="border shadow-sm bg-body p-3 rounded-2 mb-5 ">
             <h6 id="news-result"></h6>
         </section>
     </header>
+    
+    <!-- spinner  -->
+    <section id="spinner" class="container text-center d-none">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </section>
     <!------------------------- main --------------------->
     <main class="container my-2">
         <section>

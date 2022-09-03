@@ -29,7 +29,8 @@ const loadNews = (id,name) => {
         .catch(err => console.log(err))
 }
 
-const displayNews = (newses,name) => {
+const displayNews = (newses, name) => {
+    setToggle(true)
     const newsList = document.getElementById('news-list');
     const sort = newses?.sort((a, b) => (a.total_view > b.total_view ? -1 : 1));
     newsList.textContent = '';
@@ -37,7 +38,8 @@ const displayNews = (newses,name) => {
     const newsResult = document.getElementById('news-result');
     if (newses.length === 0) {
         newsResult.innerText = `${name} has found no news`;
-        newsResult.classList.add('text-danger')
+        newsResult.classList.add('text-danger');
+        
     }
     else {
         newsResult.innerText = `${newses.length} News found in ${name}`
@@ -49,13 +51,14 @@ const displayNews = (newses,name) => {
         newsDiv.classList.add('card')
         newsDiv.classList.add('my-3')
         newsDiv.classList.add('mx-5')
+
         newsDiv.innerHTML = `
         <div class="row">
         <div class="col-md-3">
             <img src="${news.thumbnail_url}" class="img-fluid rounded-start mh-100" alt="...">
         </div>
         <div class="col-md-9">
-        <div class="card-body">
+        <div class="card-body ">
             <h5 class="card-title pb-2">${news.title ? news.title : 'no title found'}</h5>
             <p class="card-text pb-3">${news.details.length > 400 ? news.details.slice(0, 400) + ' ...' : news.details}</p>
             <div>
@@ -78,6 +81,7 @@ const displayNews = (newses,name) => {
         newsList.appendChild(newsDiv);
 
     });
+    setToggle(false);
 }
 const loadNewsDetails = (newsId) => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`
@@ -100,6 +104,17 @@ const displayNewsDetails = (details) => {
     <p class="card-text pb-2">${details.author.published_date ? details.author.published_date : 'no published date found'}</p>
     `
 }
+
+const setToggle = (runNow) => {
+    const spinner = document.getElementById('spinner');
+    if (runNow === true) {
+        spinner.classList.remove('d-none')
+    }
+    else {
+        spinner.classList.add('d-none')
+    }
+}
+
 loadNews('01','treanding news')
 
 loadCategories()
