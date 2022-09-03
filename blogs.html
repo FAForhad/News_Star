@@ -16,7 +16,7 @@
             <nav>
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        <a class="navbar-brand fw-bold fs-4" href="#">NEWS <span class="p-2 bg-info rounded">STAR</span>
+                        <a class="navbar-brand fw-bold fs-4" href="index.html">NEWS <span class="p-2 bg-info rounded">STAR</span>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -50,19 +50,20 @@
                     <img src="/images/var-vs-let-vs-const-in-javascript.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title py-1"> Var vs Let vs Const</h5>
-                      <p class="card-text"> <span class="fw-bold"> Var</span> : User can re-declare variable using var and user can update var variable. Var can declare without initialization.</p>
-                      <p class="card-text"> <span class="fw-bold"> Let</span> :Users cannot re-declare the variable defined with the same let keyword but can update it., it does not initialize with undefined just like a var variable and return an error.</p>
-                      <p class="card-text"> <span class="fw-bold"> Const</span> :Users cannot change the properties of the const object, but can change value of properties of the const object. Var cannot declare without initialization.</p>
+                      <p class="card-text"> <span class="fw-bold"> Var</span> : User can declare same variable using var.</p>
+                      <p class="card-text"> <span class="fw-bold"> Let</span> : Users cannot declare the same variable using same let keyword but it can update.</p>
+                      <p class="card-text"> <span class="fw-bold"> Const</span> :Users cannot change the properties of the const object, but can change value of properties of the const object.</p>
                     </div>
                   </div>
                 </div>
+                
                 <div class="col">
                   <div class="card">
                     <img src="/images/maxresdefault_1_830x435.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Arrow Function vs Normal Function</h5>
-                      <p class="card-text"><span class="fw-bold"> Arrow Function </span> : Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow functions.</p>
-                      <p class="card-text"><span class="fw-bold"> Regular Function </span> : In a Regular function, there is an arguments local variable. If the number of arguments to our function is dynamic, using arguments allows us to easily do things like calculating the maximum number of passed arguments is an array-like object</p>
+                      <p class="card-text"><span class="fw-bold"> Arrow Function </span> : Arrow functions do not have an arguments.But they can have access to the arguments object of the non-arrow function.</p>
+                      <p class="card-text"><span class="fw-bold"> Regular Function </span> : A Regular function, there is non or much arguments we can throw as parameter the function take the arguments as parameter And with parameter we can access the arguments. And ew can do rest of work with that like setting values or mathmaticals problem ETC.</p>
                     </div>
                   </div>
                 </div>
@@ -83,18 +84,18 @@
                     <img src="/images/y8IP8T05y_830x435.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Tamplet String</h5>
-                      <p class="card-text"> <span class="fw-bold">Tamplet String </span> : Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.
+                      <p class="card-text"> <span class="fw-bold">Tamplet String </span> The advantage of backtick literals over quotation marks is when it is necessary to insert variables into a string phrase.
                         <br>
-                        The tag function can then perform whatever operations on these arguments you wish, and return the manipulated string. <br> (Alternatively, it can return something completely different, as described in one of the following examples.)
+                        The other advantage of backtick literals (` `) is not needing to escape double quote  or single quote characters using a backslash. if we create a multi-line string in JavaScriptThe solution would be to add \n newline characters, but that would make the string almost impossible to read. 
                         <br>
-                        The name of the function used for the tag can be whatever you want.</p>
+                        Backtick literals solve this problem and are preferable for HTML. Template literals make clean JavaScript code when requesting an API</p>
                     </div>
                   </div>
                 </div>
               </div>
         </section>
     </main>
-    <footer class="footer mt-5"">
+    <footer class="footer mt-5">
     <div class="mt-5 p-4 shadow-lg p-3 bg-body">
         <h4 class="text-center py-2 my-5 fw-lighter">Copyright 2021 NEWS STAR</h4>
     </div>
